@@ -237,8 +237,8 @@ def ukf_update(x_pred, P_pred, y, R):
 #### 5. Main Filter Loop (UKF) #################################################################
 
 Q = np.zeros((n_x, n_x))
-Q[3:6, 3:6] = np.eye(3) * (var_imu_f * 1.0)
-Q[6:9, 6:9] = np.eye(3) * (var_imu_w * 0.1)
+Q[3:6, 3:6] = np.eye(3) * (var_imu_f * 0.1)
+Q[6:9, 6:9] = np.eye(3) * (var_imu_w * 0.01)
 
 for k in range(1, imu_f.data.shape[0]):
     # timestamps are in ms → convert to seconds
